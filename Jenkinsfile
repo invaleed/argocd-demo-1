@@ -38,6 +38,7 @@ pipeline {
             sh "cd ./prod && kustomize edit set image invaleed/argocd-demo:${env.GIT_COMMIT}"
             sh "git commit -am 'Publish new version' && git push || echo 'no changes'"
           }
+		}
       }
     }
   }
