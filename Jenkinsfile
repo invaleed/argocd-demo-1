@@ -4,9 +4,6 @@ pipeline {
   stages {
 
     stage('Build') {
-      environment {
-        DOCKERHUB_CREDS = credentials('dockerhub')
-      }
       steps {
           // Build new image
           sh "docker build -t invaleed/argocd-demo-1:${env.GIT_COMMIT} ."
@@ -16,9 +13,6 @@ pipeline {
     }
 
     stage('Deploy E2E') {
-      environment {
-        GIT_CREDS = credentials('git')
-      }
       steps {
           sh "git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/invaleed/argocd-demo-deploy.git"
           sh "git config --global user.email 'ramadoni.ashudi@gmail.com'"
