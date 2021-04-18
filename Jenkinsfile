@@ -10,7 +10,6 @@ spec:
   containers:
   - name: dind
     image: docker:18.09-dind
-    command: ["--insecure-registry","192.168.1.145:5000"]
     securityContext:
       privileged: true
   - name: docker
@@ -20,6 +19,7 @@ spec:
     image: docker:18.09
     command:
     - cat
+    - --insecure-registry=192.168.1.145:5000
     tty: true
   - name: tools
     image: argoproj/argo-cd-ci-builder:v1.0.0
