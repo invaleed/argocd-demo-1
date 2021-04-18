@@ -17,8 +17,7 @@ spec:
     - name: DOCKER_HOST
       value: 127.0.0.1
     image: docker:18.09
-    command:
-    - cat
+    command: ["--insecure-registry", "192.168.1.145:5000"]
     tty: true
   - name: tools
     image: argoproj/argo-cd-ci-builder:v1.0.0
