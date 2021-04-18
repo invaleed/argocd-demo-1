@@ -12,7 +12,9 @@ spec:
     image: docker:18.09-dind
     securityContext:
       privileged: true
-    command: ["--insecure-registry=192.168.1.145:5000"]
+    volumeMounts: 
+      - mountPath: /var/run 
+        name: docker-sock 
   - name: docker
     env:
     - name: DOCKER_HOST
@@ -26,6 +28,9 @@ spec:
     command:
     - cat
     tty: true
+  volumes:
+  - name: docker-sock
+    emptyDir: {}
 """
     }
   }
