@@ -14,7 +14,7 @@ pipeline {
 
     stage('Deploy E2E') {
       steps {
-          sh "git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/invaleed/argocd-demo-deploy.git"
+          sh "git clone https://github.com/invaleed/argocd-demo-deploy.git"
           sh "git config --global user.email 'ramadoni.ashudi@gmail.com'"
 
           dir("argocd-demo-deploy") {
