@@ -20,7 +20,6 @@ pipeline {
 
           dir("argocd-demo-deploy") {
             sh "cd ./e2e && kustomize edit set image invaleed/argocd-demo-1:${env.GIT_COMMIT}"
-            sh "git remote add origin https://github.com/invaleed/argocd-demo-deploy.git
             sh "git commit -am 'Publish new version' && git push https://$GIT_CREDS_USR:GIT_CREDS_PSW@github.com/invaleed/argocd-demo-deploy.git || echo 'no changes'"
         }
       }
