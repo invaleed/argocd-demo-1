@@ -11,7 +11,7 @@ spec:
   - name: dind
     image: docker:18.09-dind
     command:
-    - --insecure-registry=192.168.1.145:5000
+    - ["--insecure-registry","192.168.1.145:5000"]
     securityContext:
       privileged: true
   - name: docker
