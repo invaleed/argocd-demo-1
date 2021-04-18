@@ -17,6 +17,9 @@ spec:
     - name: DOCKER_HOST
       value: 127.0.0.1
     image: docker:18.09
+    volumeMounts:
+      - name: docker
+        mountPath: /var/run/docker.sock
     command:
     - cat
     tty: true
