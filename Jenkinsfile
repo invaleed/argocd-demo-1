@@ -12,9 +12,6 @@ spec:
     image: docker:18.09-dind
     securityContext:
       privileged: true
-    volumeMounts: 
-      - mountPath: /var/run 
-        name: docker-sock 
   - name: docker
     env:
     - name: DOCKER_HOST
@@ -28,9 +25,6 @@ spec:
     command:
     - cat
     tty: true
-  volumes:
-  - name: docker-sock
-    emptyDir: {}
 """
     }
   }
