@@ -16,9 +16,8 @@ spec:
     env:
     - name: DOCKER_HOST
       value: 127.0.0.1
-    - name: DOCKER_OPTS
-      value: --insecure-registry=192.168.1.145:5000
     image: docker:18.09
+    args '-v /var/run/docker.sock:/var/run/docker.sock'
     command:
     - cat
     tty: true
