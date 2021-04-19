@@ -29,7 +29,7 @@ pipeline {
       steps {
         input message:'Approve deployment?'
           dir("argocd-demo-deploy") {
-            sh "cd ./prod && kustomize edit set image invaleed/argocd-demo-1:${env.GIT_COMMIT}"
+            sh "cd ./prd && kustomize edit set image invaleed/argocd-demo-1:${env.GIT_COMMIT}"
             sh "git commit -am 'Publish new version' && git push || echo 'no changes'"
           }
       }
